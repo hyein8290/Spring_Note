@@ -1,0 +1,190 @@
+Spring
+
+1. D:\class\spring 폴더 생성(워크스페이스)
+2. 개발 환경
+   a. Eclipse + Spring 환경 구축
+   b. Eclipse + Add-on(Plug-in) STS 설치
+   c. STS(Stand-alone) > b와 동일
+3. https://spring.io/tools
+   - Spring Tool Suite 3.9.15
+      - full distribution on Eclipse 4.16
+
+
+4. Window > Preferences
+   a. encoding > UTF-8
+   b. font
+   c. runtime > Apache Tomcat 8.5 등록
+
+5. Spring
+   - 전자정부표준프레임워크 > Spring 기반
+   a. Spring > 2002년 출시
+   b. Spring Boot > 2014년 출시
+
+6. 프로젝트 구조
+	a. src/main/java
+		- 여태까지 사용하던 Java 소스 폴더(src)
+	b. src/main/resources
+		- Java 소스 이외의 자원을 넣는 폴더
+		- 설정 파일 등
+	c. src/test/java
+		- JUnit 등 테스트용 소스 폴더
+	d. src/test/resources
+		- JUnit 등 테스트용 자원 폴더
+	f. JRE System Library
+		- JRE jar
+	g. Maven Dependencies
+		- 메이븐(빌드도구+라이브러리 관리도구 등)
+		- 메이븐 라이브러리
+		- jar 관리 목적!!!
+	h. src
+		- a~d까지의 실제 폴더(물리적 표현)
+		k. src > main > webapp
+			- Dynamic Web Project 구조와 동일	
+		l. src > main > webapp > WEB-INF
+			- classes: 컴파일 실행 결과물 저장 폴더 > X
+			- spring: 스프링 환경 설정
+				- root-context.xml: 스프링 전체 환경 설정
+				- appServlet > servlet-context.xml: 요청 환경 설정
+			- views: 뷰폴더
+	i. target
+		- X
+	j. pom.xml
+		- 메이븐 설정 파일
+		- 라이브러리 관리 파일
+
+
+
+
+
+
+
+
+
+스프링 프레임워크, Spring Framework
+- https://spring.io
+- Spring 3.XX ~ 5.XX
+- 스프링 프레임워크는 자바 플랫폼을 위한 오픈 소스 애플리케이션 프레임워크이다.
+- 전자 정부 표준 프레임워크로 채택
+- 세팅된 개발 환경 제공 + 생산성 + 개발 편의성 + 유지/보수성 + 협업 + 대형화 프로젝트 등..
+
+
+스프링 프레임워크 구성 요소
+1. 의존성 주입 지원(DI)
+2. 관점 지향 프로그래밍 지원(AOP)
+3. Spring MVC 지원(*****)
+4. 레이아웃 지원(Tiles)
+5. 데이터베이스 연동 지원
+	- JDBC 연동
+	- Spring JDBC 연동
+	- ORM 등.. 지원
+	- MyBatis 연동
+
+
+
+스프링 DI
+- Dependency Injection
+- 의존(성) 주입
+- 스프링에서 아주 중요한 개념 중 하나
+- 디자인 패턴 중 하나를 스프링에서 구현한 기술
+- 프로그래밍에서 구성 요소간의 의존 관계가 소스 내부가 아닌 외부 환경에 의해서 정의되게 하는 디자인 패턴
+- 하나의 객체가 자신의 기능을 실행하기 위해 반드시 다른 특정 객체가 필요한 경우, 그 특정 객체를 자신이 직접 생성하지 않고 외부로부터 건내받아 생성하는 경우를 의존주입이라고 한다.
+
+
+- "com.test.spring.di01"
+	- "Ex01.java"
+	- "Hong.java"
+	- "Pen.java"
+	- "Bursh.java"
+
+
+- "com.test.spring.di02"
+	- "Ex02.java"
+	- "Hong.java"
+	- "Pen.java"
+
+
+- "com.test.spring.di03"
+	- "Ex03.java"
+	- "AAA.java"
+	- "BBB.java"
+	- "CCC.java"
+	- "DDD.java"
+	- "di03.xml"
+
+
+
+AOP, Aspect Oriented Programming
+- 관점 지향 프로그래밍
+- 생산성 & 유지 보수성 향상을 위한 기술
+- 주 업무와 보조 업무를 분리시켜 > 각각의 업무를 효율적으로 관리하는 기법
+
+Spring AOP
+1. Core Concern
+	- 주업무
+
+2. Cross-cutting Concern
+	- 보조업무
+	- 횡단 관심사
+	- 인증(보안) 처리, 예외 처리, 로깅, 트랜잭션 등..
+		
+3. Advice
+	- 보조업무가 주업무 실행중 어느 시점에 개입해서 보조업무를 실행할지에 대한 미리 정의된 규칙
+	a. Before
+		- 주업무를 실행하기 전에 보조업무를 실행한다. > 인증티켓검사
+	b. After
+		- 주업무를 실행한 후에 보조업무를 실행한다. > 로그기록
+	c. After-returning
+		- 주업무를 실행한 후에 주업무의 반환값을 사용하는 보조업무를 실행한다.
+	d. After-throwing
+		- 주업무를 실행 중 예외가 발생했을 때 보조업무를 실행한다.
+	e. Around
+		- 주업무를 실행하기 전과 실행한 후에 보조업무를 실행한다.(Before + After)
+
+
+업무
+- 콘솔 프로젝트 + AOP 적용 + 메모장
+
+주업무
+1. 메모쓰기
+2. 메모읽기
+3. 메모수정
+4. 메모삭제
+
+보조업무
+1. 로그처리
+2. 인증티켓
+
+파일
+- "com.test.spring.aop"
+----------------------------------
+- "Main.java"	> 메인 클래스(main())
+- "IMemo.java" 	> 주업무 인터페이스
+- "Memo.java"	> 주업무 클래스
+----------------------------------
+- "Logger.java" > 보조업무 클래스(로그처리)
+- "Auth.java" 	> 보조업무 클래스(인증티켓)
+----------------------------------
+- "memo.xml"	> 스프링 설정파일
+
+
+AOP 라이브러리
+- pom.xml
+1. aopalliance
+2. aspectjweaver 
+3. cglib
+
+
+
+- 주업무 + 보조업무 결합 > before, after > around, + 2
+
+		
+
+
+
+
+
+
+
+
+
+

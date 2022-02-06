@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- di02 -->
+	<!--  
+	
+		<bean>: 자바 객체(자바빈), 자바의 객체를 생성하는데 사용하는 태그
+		Spring을 통해서 아래의 <bean> 선언을 호출한 뒤 객체를 생성할 수 있다.
+		Spring을 사용하면 객체의 생성~소멸을 프레임워크에게 관리를 맡길 수 있다.
+		
+	-->
+	
+	<!-- 
+	<bean id="hong" name="aa bb cc" class="com.test.spring.di02.Hong"></bean>
+	<bean id="pen" name="dd ee" class="com.test.spring.di02.Pen"></bean> 
+	-->
+	
+	
+	<!-- context.getBean("hong"); -->
+	<bean id="pen" name="dd ee" class="com.test.spring.di02.Pen"></bean>
+	
+	<bean id="hong" name="aa bb cc" class="com.test.spring.di02.Hong">
+		<constructor-arg ref="pen"></constructor-arg> <!-- 의존 주입(DI) -->
+	</bean>
+	       
+           
+</beans>
+
+
+
+
+
+
+
+
+
+
