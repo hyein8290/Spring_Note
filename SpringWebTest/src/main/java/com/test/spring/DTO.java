@@ -11,10 +11,13 @@ import lombok.Data;
 public class DTO {
 	
 	private String seq;
-	private String name;
 	private String id;
 	private String subject;
 	private String content;
 	private String regdate;
+	
+	private String name;
+	private String age;
+	private String address;
 
 }
