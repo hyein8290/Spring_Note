@@ -1,0 +1,56 @@
+새 프로젝트
+- Spring MVC Project > "SpringMemo" > "com.test.memo"
+
+프로젝트 설정
+
+1. pom.xml
+	a. 스프링 버전 교체
+	b. 자바 버전 교체
+	c. ojdbc.jar
+		- BuildPath > 직접 추가
+		- WEB-INF > lib > 직접 추가
+		- 메이븐
+	d. lombok.jar
+		
+2. web.xml
+	a. 인코딩 필터 추가
+	
+3. root-context.xml
+	a. 설정 없음
+	
+4. servlet-context.xml
+	a. <resources> 수정
+	
+5. 클라이언트 설정
+	a. inc 복사
+	b. css 복사
+	c. fonts 복사
+	d. images 복사
+	e. js 복사
+	
+6. DB
+	a. ERD
+	b. Table
+	
+7. 업무 + 파일
+	- "MemoController.java" > 메인 컨트롤러
+	- "IMemoService.java"	> 업무 객체 인터페이스
+	- "MemoService.java"	> 업무 객체
+	- "MemoDAO.java"		
+	- "MemoDTO.java"
+	
+	a. 목록(메모) 보기
+		- "list.jsp"
+	b. 메모 쓰기
+		- "add.jsp"
+	c. 메모 수정
+		- "edit.jsp"
+	d. 메모 삭제
+	
+	e. 공통
+		- inc > "header.jsp"
+		
+		
+		
+		
+		
