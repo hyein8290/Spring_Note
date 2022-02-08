@@ -19,14 +19,15 @@
    <div class="container">
       	<%@ include file="/inc/header.jsp"%>
 		
+		<form method="POST" action="/memo/editok.do">
 		<table class="table table-bordered">
 			<tr>
 				<th>이름</th>
-				<td><input type="text" name="name" class="form-control" required></td>
+				<td><input type="text" name="name" class="form-control" required value="${dto.name}"></td>
 			</tr>
 			<tr>
 				<th>메모</th>
-				<td><textarea name="memo" class="form-control" required style="height: 200px;"></textarea>
+				<td><textarea name="memo" class="form-control" required style="height: 200px;">${dto.memo}</textarea>
 			</tr>
 		</table>
 		
@@ -36,6 +37,9 @@
 			<input type="button" value="돌아가기" class="btn btn-default" onclick="location.href='/memo/list.do';">
 			<input type="submit" value="메모수정 " class="btn btn-default">
 		</div>
+		
+		<input type="hidden" name="seq" value="${dto.seq}">
+		</form>
       
    </div>
    

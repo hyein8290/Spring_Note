@@ -36,8 +36,8 @@
 				<td>${dto.name}</td>
 				<td>${dto.regdate}</td>
 				<td>
-					<input type="button" value="E" class="btn btn-default btn-xs" onclick="location.href='/memo/edit.do'">
-					<input type="button" value="D" class="btn btn-default btn-xs" onclick="location.href='/memo/delok.do'">
+					<input type="button" value="E" class="btn btn-default btn-xs" onclick="location.href='/memo/edit.do?seq=${dto.seq}'">
+					<input type="button" value="D" class="btn btn-default btn-xs" onclick="location.href='/memo/delok.do?seq=${dto.seq}'">
 				</td>
 			</tr>
 			</c:forEach>

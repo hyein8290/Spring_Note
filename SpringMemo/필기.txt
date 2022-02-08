@@ -51,6 +51,16 @@
 		- inc > "header.jsp"
 		
 		
+
+*** 정리
+1. Controller <-> Service <-> DAO
+2. 전달값을 요청 메소드의 매개변수를 사용해서 받은 것
+3. 공용 객체를 멤버 승격 + @Autowired 의존 주입
+
+
+
+
+ 
 		
 		
 		

@@ -15,10 +15,10 @@
 	</style>
 </head>
 <body>
-   <!--  -->
    <div class="container">
       	<%@ include file="/inc/header.jsp"%>
 		
+		<form method="POST" action="/memo/addok.do">
 		<table class="table table-bordered">
 			<tr>
 				<th>이름</th>
@@ -34,8 +34,9 @@
 
 		<div>
 			<input type="button" value="돌아가기" class="btn btn-default" onclick="location.href='/memo/list.do';">
-			<input type="submit" value="메모쓰기 " class="btn btn-default">
+			<input type="submit" value="메모쓰기" class="btn btn-default">
 		</div>
+		</form>
       
    </div>
    
