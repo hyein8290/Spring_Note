@@ -41,7 +41,7 @@
 			</section>
 		</section>
 
-	</main
+	</main>
    
    <script>
    
