@@ -1,0 +1,59 @@
+새 프로젝트 2개
+1. Spring MVC Project > "SpringNonTilesTest" > "com.test.nontiles"
+
+2. Spring MVC Project > "SpringTilesTest" > "com.test.tiles"
+
+
+
+Spring Tiles
+- 사이트 레이아웃 작업 도구
+- 페이지 디자인(편집) 많은 도움 > 구조화 + 체계적 관리 등..
+- 페이지 반복되는 부분 > 생산성 향상
+	- Servlet/JSP > 조각 페이지(<%@ include %>)
+	
+	
+업무 페이지
+1. 메인 페이지(1)
+2. 회원 관련
+	a. 정보 페이지(2)
+	b. 활동(로그) 페이지(3)
+3. 관리자 관련
+	a. 포인트 페이지(4)
+	b. 차트 페이지(5)
+	
+	
+	
+파일 생성
+- "MainController.java"
+	//- "MemberController.java"
+	//- "AdminController.java"
+
+- views > "main.jsp" //메인 페이지
+- views > "member" > "info.jsp"   //회원 > 정보 페이지
+- views > "member" > "log.jsp"    //회원 로그 페이지
+- views > "admin"  > "point.jsp"  //관리자 > 포인트 페이지
+- views > "admin"  > "chart.jsp"  //관리자 > 차트 페이지
+
+- views > "inc" > "asset.jsp" 			//복사
+- views > "inc" > "mainmenu.jsp" 		//주메뉴 페이지(상단 파란색 조각 페이지)
+- views > "inc" > "submenu_member.jsp"  //보조메뉴 페이지(좌측 회원 노란색 페이지)
+- views > "inc" > "submenu_admin.jsp"   //보조메뉴 페이지(좌측 관리자 연두색 페이지)
+
+- webapp > resources > css, js, fonts, images 폴더 복사
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

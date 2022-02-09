@@ -1,0 +1,32 @@
+/* webapp > resource > css > main.css */
+
+main {
+	width: 600px;
+	border: 10px solid #555;
+	margin: 0px auto;
+}
+
+header {
+	border: 10px solid #555;
+	height: 100px;
+	background-color: rgb(0, 162, 232);
+}
+
+header > a {
+	color : white;
+	margin: 10px;
+}
+
+section > section {
+	border: 10px solid #555;
+	/* width: 430px; */
+	width: 580px;
+	height: 400px;
+	float: left;
+}
+
+section:after {
+	content: '';
+	display: block;
+	clear: both;
+}
