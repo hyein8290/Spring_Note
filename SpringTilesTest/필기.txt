@@ -1,0 +1,11 @@
+
+Spring Tiles 설정
+
+1. pom.xml
+	- <dependency> x 5개 추가
+	
+2. WEB-INF > "tiles.xml"
+	- 레이아웃 설정 파일 > 이 파일을 통해서 템플릿 관리한다.
+	
+3. servlet-context.xml
+	- 

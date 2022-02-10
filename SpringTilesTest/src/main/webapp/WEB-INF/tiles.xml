@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+	
+	<!-- 
+		<definition template="JSP 경로">에서 사용하는 JSP 페이지는 layout 폴더에서 관리한다.
+	-->
+	
+	<!-- 레이아웃 페이지 정보 1개 -->
+	<!-- 
+	
+	<definition name="template" template="/WEB-INF/views/layout/template.jsp">
+		조각 페이지 등록!!
+		<put-attribute name="menu" value="/WEB-INF/views/inc/submenu_member.jsp"></put-attribute>
+
+		<put-attribute name="content" value="/WEB-INF/views/template.jsp"></put-attribute>
+	
+	</definition>
+	
+	<definition name="sub" template="/WEB-INF/views/layout/sub.jsp">
+		<put-attribute name="menu" value="/WEB-INF/views/inc/submenu_member.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/views/sub.jsp"></put-attribute>
+	</definition>
+	 
+	 -->
+	 
+	<!-- 
+	
+	<definition name="*.*" template="/WEB-INF/views/layout/aaa.jsp">
+		<put-attribute name="menu" value="/WEB-INF/views/inc/submenu_{1}.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/views/{2}.jsp"></put-attribute>
+	</definition>
+	
+	-->
+	
+	<!-- 순서가 중요! 와일드 카드가  적은 게 먼저 적용되므로 많은 건 위로 올려야 한다!!! -->
+	
+	<!-- 3단 구조 > 회원, 관리자 -->
+	
+	<definition name="*.*" template="/WEB-INF/views/layout/two.jsp">
+		<put-attribute name="asset" value="/WEB-INF/views/inc/asset.jsp"></put-attribute>
+		<put-attribute name="mainmenu" value="/WEB-INF/views/inc/mainmenu.jsp"></put-attribute>
+		<put-attribute name="submenu" value="/WEB-INF/views/inc/submenu_{1}.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp"></put-attribute>
+	</definition>
+	
+	
+	<!-- 2단 구조 > main.do -->
+	
+	<definition name="*" template="/WEB-INF/views/layout/one.jsp">
+		<put-attribute name="asset" value="/WEB-INF/views/inc/asset.jsp"></put-attribute>
+		<put-attribute name="mainmenu" value="/WEB-INF/views/inc/mainmenu.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/views/{1}.jsp"></put-attribute>
+	</definition>
+	
+	
+	<!-- 	
+	<definition name="*.*.*" template="/WEB-INF/views/layout/{1}.jsp">
+		<put-attribute name="asset" value="/WEB-INF/views/inc/asset.jsp"></put-attribute>
+		<put-attribute name="mainmenu" value="/WEB-INF/views/inc/mainmenu.jsp"></put-attribute>
+		<put-attribute name="submenu" value="/WEB-INF/views/inc/submenu_{2}.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/views/{2}/{3}.jsp"></put-attribute>
+	</definition>
+	 -->
+	
+</tiles-definitions>
