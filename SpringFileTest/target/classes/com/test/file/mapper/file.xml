@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="file">
+
+	<insert id="add" parameterType="com.test.file.BoardDTO">
+		insert into tblFileBoard (seq, name, subject, regdate, orgfilename, filename)
+			values (seqFileBoard.nextVal, #{name}, #{subject}, default, #{orgfilename}, #{filename})
+	</insert>
+	
+	<select id="list" resultType="com.test.file.BoardDTO">
+		select * from tblFileBoard order by seq desc
+	</select>
+	
+	<insert id="madd" parameterType="com.test.file.MBoardDTO">
+		insert into tblFileBoard (seq, name, subject, regdate)
+			values (seqFileBoard.nextVal, #{name}, #{subject}, default)
+	</insert>
+	
+	<select id="getseq" resultType="String">
+		select max(seq) from tblFileBoard
+	</select>
+	
+	<insert id="maddfile" parameterType="com.test.file.FileDTO">
+		insert into tblFile (seq, filename, orgfilename, bseq)
+			values (seqFile.nextVal, #{filename}, #{orgfilename}, #{bseq})
+	</insert>
+	
+	<select id="mlist" resultType="com.test.file.MBoardDTO">
+		select * from tblFileBoard order by seq desc
+	</select>
+	
+	<select id="mfilelist" parameterType="String" resultType="com.test.file.FileDTO">
+		select * from tblFile where bseq = #{seq}	
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

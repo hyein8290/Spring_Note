@@ -1,0 +1,43 @@
+
+새 프로젝트 생성
+- "SpringFileTest" > "com.test.file"
+
+
+
+스프링 파일 업로드
+1. pom.xml
+	- <dependency> x 2개
+	
+2. web.xml
+	- 인코딩 필터 > SpringMemo에서 복사
+	
+3. root-context.xml
+	- 설정
+	
+MyBatis 설정 > SpringMyBatisTest
+1. pom.xml
+	- mybatis
+	- log4j
+	- lombok
+	- jdbc
+
+2. root-context.xml
+	- mybatis 설정
+	- mapper 설정
+	
+	
+파일 생성
+- "FileController.java"
+- "BoardDAO.java"
+- "BoardDTO.java"
+
+- "list.jsp"
+- "add.jsp"
+
+- "script.sql"
+
+
+- "MBoardDTO.java"
+- "mlist.jsp"
+- "madd.jsp"
+	
