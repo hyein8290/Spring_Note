@@ -1,0 +1,36 @@
+새 프로젝트 생성
+- Spring MVC Project > "SpringMyBatisTest" > "com.test.mybatis"
+
+MyBatis
+- 마이바티스는 자바 퍼시스턴스 프레임워크의 하나로 XML 서술자나 어노테이션을 사용하여 저장 프로시저나 SQL 문으로 객체들을 연결시킨다.
+- 퍼시스턴스 프레임워크: DB 연결 계층(JDBC, MyBatis)
+- SQL: XML or 어노테이션으로 작성
+
+
+String sql = "select..";
+<select>select..</select>
+@XXX("select..")
+
+
+프로젝트 설정
+1. pom.xml
+	a. JDBC > ojdbc.jar
+	b. MyBatis > 4개
+	c. lombok
+	d. log4j > 버전 교체, 1개
+	
+2. web.xml
+	a. 인코딩 필터
+	
+3. root-context.xml
+	a. MyBatis 설정
+	b. log4j 설정(log4j를 MyBatis와 연동하기 위한 설정)
+	
+	
+	
+	
+파일 생성
+- "MyBatisController.java"
+- "MyBatisDAO.java"
+- "MemoDTO.java"
+- views > "mybatis.jsp"
