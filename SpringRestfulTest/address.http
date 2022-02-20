@@ -1,0 +1,30 @@
+GET http://localhost:8090/address
+
+###
+
+GET http://localhost:8090/address/대치동 HTTP/1.1
+
+###
+POST http://localhost:8090/address HTTP/1.1
+Content-Type: application/json
+
+{
+	"name": "하하하",
+	"age": 23,
+	"tel": "010-7777-7777",
+	"address": "서울시 강동구 천호동"
+}
+
+###
+PUT http://localhost:8090/address/4 HTTP/1.1
+Content-Type: application/json
+
+{
+	"name": "하하하",
+	"age": 33,
+	"tel": "010-7777-7777",
+	"address": "서울시 강동구 천호동"
+}
+
+###
+DELETE http://localhost:8090/address/4

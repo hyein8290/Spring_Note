@@ -1,0 +1,126 @@
+
+새 프로젝트 생성
+- "SpringRestfulTest" > "com.test.spring"
+
+
+REST, Representational State Transfer
+- 웹상의 자원(데이터)를 자원의 이름으로 표시해서 자원의 상태(값, 정보)를 주고 받는 행위
+- HTTP URI를 통해 자원을 명시하고, HTTP Method를 통해 해당 자원에 대한 CRUD 처리를 적용한다.
+
+REST -> 구현 서비스
+- RESTful API
+- REST API
+
+
+웹 서비스
+1. 정적 콘텐츠 제공 > resources
+	- hello.html
+	- hello.css
+	- hello.png
+2. 동적 콘텐츠 제공
+	- 서버 페이지(Servlet, JSP)
+	- 서버측에서 동작 후 동적으로 생성되는 페이지
+	- 주로 서버측의 템플릿 엔진(JSP)을 사용해서 페이지를 동적 생성한다.
+3. REST API 제공
+	- REST 방식의 서비스를 제공
+	
+	
+REST API 설계 규칙
+1. URI에서 자원을 표시한다.
+2. URI에 동사를 표시하지 않는다.
+3. HTTP Method를 사용해서 행동을 표시한다.
+	- 2번에서 동사를 사용하지 않는다. 대신 HTTP Method를 사용해서 동사를 표현한다.
+	a. GET: 리소스 요청
+	b. POST: 데이터 전달 + 서버측 생성
+	c. PUT: 데이터 전달 + 수정(전체 수정)
+	d. PATCH: 데이터 전달 + 수정(일부 수정)
+	e. DELETE: 데이터 삭제
+4. URI + HTTP Method = 완성
+5. 구분자는 '/'를 사용한다.
+6. URI의 마지막에 '/'를 적지 않는다.
+7. '-' 사용 가능하다.(가독성)
+8. '_' 사용하지 않는다.(가독성)
+9. 파일 확장자를 사용하지 않는다.
+10. REST API의 반환값은 순수 데이터만 반환한다.
+	- 기존 방식: 반환 데이터 > 데이터 소스
+	- REST 방식: 반환 데이터 > 순수 데이터(= Ajax의 결과와 거의 동일)
+	
+
+
+
+
+
+
+
+
+URI 작성
+1. 기존 장식
+- GET	 http://localhost/member/list.do			목록보기
+- POST	 http://localhost/member/add.do				추가하기
+- POST	 http://localhost/member/edit.do?seq=1		수정하기
+- POST	 http://localhost/member/del.do?seq=1		삭제하기
+- GET	 http://localhost/member/list.do?w=검색어		검색하기
+
+2. REST
+- GET	 http://localhost/member					목록보기
+- POST	 http://localhost/member					추가하기
+- PUT	 http://localhost/member/1					수정하기
+- DELETE http://localhost/member/1					삭제하기
+- GET	 http://localhost/member/1					검색하기
+
+
+
+
+
+
+프로젝트 설정
+- MyBatis + log4j
+
+1. pom.xml
+	- MyBatis
+	- log4j
+	- JDBC
+	- lombok
+	
+2. web.xml
+	- encoding filter
+
+3. root-context.xml
+	- MyBatis
+	- log4j
+
+4. servlet-context.xml
+
+
+파일 생성
+- "AddressController.java"
+- "AddressDAO.java"
+- "AddressDTO.java"
+
+- "jsp" ? > 생성 안함
+
+
+
+
+
+
+
+사이트 개발
+1. SSR 의존적 개발
+	- Server Side Rendering > 서버측에서 페이지를 제작
+	- Servlet/JSP
+	- 서버: 모든 업무(작업)와 페이지 제작을 한다.
+	- 클라이언트: 서버가 제공하는 페이지를 소비(사용)한다.
+	- 초기-현재
+	
+2. CSR + REST API 개발
+	- Client Side Rendering > 클라이언트측에서 페이지를 제작
+	- Ajax > JavaScript Framework > Angular, Vue, React .. > Vanilla JavaScript
+	- 서버: 업무(작업) 후 데이터 입/출력 제공 > 페이지 작업 안함(!!!!!)
+	- 클라이언트: 서버로부터 데이터 입/출력 작업 통해 모든 페이지 작업을 한다.
+	- ES6 이후~
+	- 모바일웹, 웹앱 등.. 스마트폰 앱
+
+
+	
+	

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="address">
+	
+	<insert id="add" parameterType="com.test.spring.AddressDTO">
+		insert into tblAddress (seq, name, age, tel, address)
+			values (seqAddress.nextVal, #{name}, #{age}, #{tel}, #{address})
+	</insert>
+	
+	<select id="list" resultType="com.test.spring.AddressDTO">
+		select * from tblAddress order by seq asc
+	</select>
+
+	<update id="edit" parameterType="com.test.spring.AddressDTO">
+		update tblAddress set
+			name = #{name},
+			age = #{age}, 
+			tel = #{tel}, 
+			address = #{address}
+				where seq = #{seq}
+	</update>
+	
+	<delete id="del" parameterType="String">
+		delete from tblAddress where seq = #{seq}
+	</delete>
+	
+	<select id="search" parameterType="String" resultType="com.test.spring.AddressDTO">
+		select * from tblAddress where address like '%' || #{word} || '%' order by seq asc 
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
