@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
+<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<style>
+	
+	.container {
+		width: 500px;
+	}
+	
+	#list {
+		height: 300px;
+		padding: 5px;
+		overflow: auto;
+	}
+	
+	.me {
+		display: inline-block;
+		width: auto;
+		float: right;
+		margin-bottom: 15px;
+	}
+	
+	.state {
+		border: 1px solid #CCC;	
+		background-color: #EEE;
+		border-radius: 3px;
+		padding: 5px 10px;
+	}
+	
+	.time {
+		font-size: 10px;
+		color: #777;
+		text-align: right;
+		margin-top: 3px;
+	}
+	
+	.me:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+	
+</style>
+</head>
+<body>
+	<!-- webapp > resources > chat.html -->
+	<div class="container">
+		<h1 class="page-header">Chat <small>WebSocket</small></h1>
+		
+		<table class="table table-bordered">
+			<tr>
+				<td>
+					<input type="text" name="user" id="user" class="form-control" placeholder="대화명" autofocus>
+				</td>
+				<td>
+					<input type="button" class="btn btn-default" id="btnConnect" value="연결하기">
+					<input type="button" class="btn btn-default" id="btnDisconnect" value="종료하기" disabled>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<div id="list">
+						<!--
+						<div class="me">
+							<div class="state">채팅에 참여했습니다.</div>
+							<div class="time">2022-02-18 12:45:50</div>					
+						</div>
+						-->
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<input type="text" name="msg" id="msg" placeholder="대화 내용을 입력하세요." class="form-control" disabled>
+				</td>
+			</tr>
+		</table>
+	</div>
+	
+	<script>
+		
+		//채팅 서버 주소
+		const url = "ws://localhost:8090/socket/chatserver";
+		
+		//소켓
+		let ws;
+		
+		//연결하기
+		$('#btnConnect').click(function() {
+			
+			//유저명 필수
+			if($('#user').val().trim() != ''){
+				
+				//연결하기 > 소켓 생성
+				ws = new WebSocket(url);
+				
+				//소켓 이벤트 매핑
+				ws.onopen = function(evt) {
+					log('연결 성공');
+					
+					//접속한 유저명을 서버에게 전달
+					// > 규칙!!
+					
+					//1#유저명
+					ws.send('1#' + $('#user').val());
+					print1('채팅에 참여했습니다.');
+					
+					//UI 상태 조작
+					$('#btnConnect').attr('disabled', true);
+					$('#btnDisconnect').attr('disabled', false);
+					$('#user').attr('disabled', true);
+					$('#msg').attr('disabled', false);
+					$('#msg').focus();
+					
+					
+				};
+				
+				ws.onmessage = function(evt) {
+					log('메시지 수신');
+					
+					//$('#list').append('<div>' + evt.data + '</div>');
+					
+					//1#유저명: 다른 유저가 접속했습니다.
+					//2#유저명: 다른 유저가 나갔습니다.
+					let index = evt.data.indexOf('#');
+					let no = evt.data.substring(0, 1);
+					let user = evt.data.substring(index+1);
+					
+					if(no == '1'){
+						$('#list').append('<div>' + user + '가 채팅에 참여했습니다.' + '</div>');
+					} else if (no == '2'){
+						$('#list').append('<div>' + user + '가 채팅에서 나갔습니다.' + '</div>');						
+					}
+					
+				};
+				
+				ws.onclose = function(evt) {
+					log('연결 종료');
+					
+					//UI 상태 조작
+					$('#btnConnect').attr('disabled', false);
+					$('#btnDisconnect').attr('disabled', true);
+					$('#user').attr('disabled', false);
+					$('#msg').attr('disabled', true);
+					$('#user').val('').focus();
+					
+				};
+				
+				ws.onerror = function(evt) {
+					log(evt.data);
+				};
+				
+			} else {
+				alert('유저명을 입력하세요');
+				$('#user').focus();
+			}
+			
+		});
+		
+		function log(msg) {
+			console.log('[' + new Date().toLocaleTimeString()+ ']' + msg);
+		}
+		
+		$('#user').keydown(function(evt) {
+			if(evt.keyCode == 13){
+				$('#btnConnect').click();
+				
+			}
+		})
+		
+		$('#msg').keydown(function(evt) {
+			if(evt.keyCode == 13){
+				
+				//대화내용을 서버에 전달하기
+				ws.send($('#msg').val());
+				
+				$('#msg').val('').focus();
+			}
+		})
+		
+		$('#btnDisconnect').click(function() {
+			
+			//2#유저명
+			ws.send('2#' + $('#user').val());
+			print1('채팅에서 나갔습니다.');
+			ws.close();
+			
+		});
+		
+		//본인 상태 메시지 
+		function print1(msg) {
+			$('#list').append('<div class="me"><div class="state">' + msg + '</div><div class="time">' + new Date().toLocaleString() +'</div></div><div style="clear:both"></div>');
+		}
+		
+	</script>
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
