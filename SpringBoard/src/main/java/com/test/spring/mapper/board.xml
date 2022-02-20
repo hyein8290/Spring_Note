@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="board">
+	
+	<insert id="add" parameterType="dto">
+		insert into tblSpringBoard (seq, id, subject, content, regdate, orgfilename, filename) 
+    		values (seqSpringBoard.nextVal, 'hong', #{subject}, #{content}, default, #{orgfilename}, #{filename})
+	</insert>
+	
+	<select id="list" resultType="dto">
+		select 
+	    seq, id,
+	    (select name from tblUser where id = tblSpringBoard.id) as name,
+	    subject,
+	    regdate,
+	    filename
+	        from tblSpringBoard
+	        	order by seq desc
+	</select>
+	
+	<select id="get" parameterType="String" resultType="dto">
+		select
+			s.*,
+			(select name from tblUser where id = s.id) as name
+		from tblSpringBoard s
+			where seq = #{seq}
+	</select>
+	
+	<update id="edit" parameterType="dto">
+		update tblSpringBoard set 
+			subject = #{subject}, 
+			content = #{content}, 
+			orgfilename = #{orgfilename}, 
+			filename = #{filename} 
+				where seq = #{seq}
+	</update>
+	
+	<delete id="del" parameterType="String">
+		delete from tblSpringBoard where seq = #{seq}
+	</delete>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

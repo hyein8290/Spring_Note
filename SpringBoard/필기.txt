@@ -1,0 +1,97 @@
+
+새 프로젝트 생성
+
+- "SpringBoard" > "com.test.spring"
+
+1. DB
+- SpringBoard > "script.sql"
+
+2. Spring 설정
+	a. Spring Tiles
+	b. Spring AOP
+	c. Spring FileUpload
+	d. MyBatis
+	
+3. pom.xml
+	a. JDBC > SpringMyBatisTest x 1개
+	b. lombok > SpringMyBatisTest x 1개
+	c. Mybatis > SpringMyBatisTest x 4개
+		- root-context.xml		
+			- mapper
+			- mybatis.xml
+	d. log4j > 
+		- log4j.xml
+		
+	e. Tiles > SpringTilesTest x 5개
+		- servlet-context.xml
+	
+	f. AOP > SpringWebAOPTest x 3개
+		- servlet-context.xml
+	
+	g. FileUpload > SpringFileTest x 2개
+		- root-context.xml
+
+4. 파일 + 폴더 생성
+	a. "BoardController.java"
+	b. "BoardService.java" //인터페이스
+	c. "BoardServiceImpl.java" //구현 클래스
+	d. "BoardDAO.java" //인터페이스
+	e. "BoardDAOImpl.java" //구현 클래스
+	f. "BoardDTO.java" //모델
+	
+	g. views > "board" > "list.jsp" 
+					   > "add.jsp"
+					   > "edit.jsp"
+					   > "del.jsp"
+					   > "view.jsp"
+
+	h. views > "layout" > "board.jsp"
+						  
+	i. views > "inc" > "header.jsp"
+	                 > asset.jsp 복사
+	
+	j. webapp > resources > css, js, fonts 복사
+	
+
+- Spring Restful API > OPEN API
+- Spring Rest API
+
+- WebSocket > 채팅
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
