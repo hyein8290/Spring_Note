@@ -1,0 +1,25 @@
+
+새 프로젝트
+- "SpringWebAOPTest" > "com.test.aop"
+
+Spring MVC Project + Spring AOP + Annotation
+
+AOP 설정 > SpringBegin 참고
+1. pom.xml
+	- AOP x 3개
+
+2. web.xml
+	- 인코딩 필터
+	
+3. root-context.xml
+	- MyBatis + log4j + FileUpload
+
+4. servlet-context.xml
+	- Tiles
+	- AOP(***)
+	
+
+파일 생성
+- "AOPController.java"
+- "Service.java"
+- "result.jsp"
